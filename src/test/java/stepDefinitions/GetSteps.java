@@ -8,7 +8,7 @@ public class GetSteps {
 
     private Response response;
 
-    @When("Perform a GET request")
+    @When("perform a GET request")
     public void getRequest() {
         response = RestUtils.performGetRequest();
     }
