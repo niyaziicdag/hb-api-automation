@@ -12,6 +12,6 @@ Feature: Get Post Request Feature
 
   @smoke @post_request
   Scenario: Example Post Scenario
-    And Set the path "pet" with param "1"
-    When Perform a POST request with query
+    And Set the path "pet" with param "10"
+    When Perform a POST request with "doggie" query
     Then Verify that response status code 200

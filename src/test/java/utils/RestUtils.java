@@ -8,8 +8,6 @@ import io.restassured.specification.RequestSpecification;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.IOException;
-
 import static io.restassured.RestAssured.given;
 
 public class RestUtils {
@@ -34,9 +32,9 @@ public class RestUtils {
         requestSpecification.contentType(contentType);
     }
 
-    public static Response performPostRequestWithQuery() throws IOException {
+    public static Response performPostRequestWithQuery(String queryValue) {
         RestAssured.filters(new RequestLoggingFilter(), new ResponseLoggingFilter());
-        requestSpecification.queryParam("name","doggie");
+        requestSpecification.queryParam(ConfigUtils.getProperties("query_string_path"),queryValue);
         response = requestSpecification.post(RestAssured.baseURI + RestAssured.basePath);
         response.then().log().all();
         LOGGER.info("Post URL: {}", RestAssured.baseURI + RestAssured.basePath);

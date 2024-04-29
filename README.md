@@ -32,7 +32,7 @@ To run this project, the following software and tools need to be installed:
 
 3. **Install dependencies:**
 
-    ```
+    ```bash
     mvn install
     ```
    
