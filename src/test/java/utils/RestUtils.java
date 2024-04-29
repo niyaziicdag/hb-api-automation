@@ -24,7 +24,7 @@ public class RestUtils {
     public static Response response;
 
     public JsonObject readJsonFile() throws IOException {
-        String jsonFilePath = "src/test/java/model/post_request.json";
+        String jsonFilePath = ConfigUtils.getProperties("request_model_path") + "post_request.json";
         JsonParser parser = new JsonParser();
         JsonElement jsonElement = parser.parse(new FileReader(jsonFilePath));
         return jsonElement.getAsJsonObject();
@@ -52,8 +52,7 @@ public class RestUtils {
         requestSpecification.body(bodyPayload.toString());
         response = requestSpecification.post();
         response.then().log().all();
-        LOGGER.info("Post URL: {}", RestAssured.baseURI + RestAssured.basePath);
-        LOGGER.info("Received response status code: {}", response.getStatusCode());
+        printLog(RestAssured.baseURI + RestAssured.basePath, response);
     }
 
     public static Response performPostRequestWithQuery(String queryValue) {
@@ -61,16 +60,19 @@ public class RestUtils {
         requestSpecification.queryParam(ConfigUtils.getProperties("query_string_path"), queryValue);
         response = requestSpecification.post();
         response.then().log().all();
-        LOGGER.info("Post URL: {}", RestAssured.baseURI + RestAssured.basePath);
-        LOGGER.info("Received response status code: {}", response.getStatusCode());
+        printLog(RestAssured.baseURI + RestAssured.basePath, response);
         return response;
     }
 
     public static Response performGetRequest() {
-        response = requestSpecification.when().get(RestAssured.baseURI + RestAssured.basePath);
+        response = requestSpecification.when().get();
         response.then().log().all();
-        LOGGER.info("Get URL: {}", RestAssured.baseURI + RestAssured.basePath);
-        LOGGER.info("Received response status code: {}", response.getStatusCode());
+        printLog(RestAssured.baseURI + RestAssured.basePath, response);
         return response;
+    }
+
+    public static void printLog(String endpoint, Response response) {
+        LOGGER.info("URL: {}", RestAssured.baseURI + RestAssured.basePath + endpoint);
+        LOGGER.info("Received response status code: {}", response.getStatusCode());
     }
 }

@@ -72,4 +72,4 @@ mvn clean test -Dtest=Runner "-Dtags=@smoke"
 
 ## Screenshot
 
-  <img src="https://i.imgur.com/i3QsfQ9.png">
+  <img src="https://i.imgur.com/rsySL83.png">
