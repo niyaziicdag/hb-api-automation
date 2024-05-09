@@ -72,7 +72,7 @@ public class RestUtils {
     }
 
     public static void printLog(String endpoint, Response response) {
-        LOGGER.info("URL: {}", RestAssured.baseURI + RestAssured.basePath + endpoint);
+        LOGGER.info("URL: {}", endpoint);
         LOGGER.info("Received response status code: {}", response.getStatusCode());
     }
 }

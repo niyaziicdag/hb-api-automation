@@ -5,7 +5,7 @@ Feature: Get And Post Request Feature
 
   @smoke @get_request
   Scenario: Example Get Scenario
-    And set the path "pet" with param "1"
+    And set the path "pet" with param "10"
     And set the content type to "application"
     When perform a GET request
     Then verify that response status code 200
@@ -14,7 +14,7 @@ Feature: Get And Post Request Feature
   Scenario: Example Post Scenario
     And set the path "pet" with param "10"
     And set the content type to "application/x-www-form-urlencoded"
-    When perform a POST request with "doggie" query
+    When perform a POST request with "hb_api" query
     Then verify that response status code 200
 
   @smoke @post_request_with_body

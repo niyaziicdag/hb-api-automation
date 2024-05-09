@@ -1,9 +1,9 @@
 {
-  "id": 0,
+  "id": 10,
   "category": {
     "id": 0,
     "name": "string"
   },
-  "name": "doggie",
+  "name": "hb_api",
   "status": "available"
 }
