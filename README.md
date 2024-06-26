@@ -1,10 +1,10 @@
-# Hepsiburada Study Case Api Automation
+# Rest Assured Api Automation
 
-This project is created to automate tests for Hepsiburada Study Case api test using RestAssured, Java, Cucumber.
+This project is created to automate tests for Rest Assured api test using RestAssured, Java, Cucumber.
 
 ## About the Project
 
-This project is used to perform automation tests for Hepsiburada Study Case Api get and post requests.
+This project is used to perform automation tests for Rest Assured Api get and post requests.
 
 ## Requirements
 
